@@ -23,20 +23,8 @@ def chefy(request, dish: str):
     response = service.chef_gpt(dish)
     return response
 
-@api.get("/parts")
-def parts(request, keyword: str, manufacturer: str):
-    service = PartsService()
-    response = service.get_parts(keyword, manufacturer)
-    return response
-
 @api.get("/parse")
 def parse(request, text: str):
     service = PartsService()
     response = service.parse_keywords_ai(text)
-    return response
-
-@api.get("/manufacturer")
-def manufacturer(request, text: str):
-    service = PartsService()
-    response = service.get_manufacturer(text)
     return response
